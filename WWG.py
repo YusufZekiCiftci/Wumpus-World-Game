@@ -9,22 +9,23 @@ koku hissedilmektedir(S). Eğer oyuncu altına yakın ise altının bulunduğu k
 hemen yanındaki karelerde parıltı gözükür. Oyuncu(P) ,Wumpus(W) dur.
 """
 
+import random
 
 def gameArea():
-    coord=[0,0]
+    line=[0,0]
     shape1="*****************************************"
     shape2="*         *         *         *         *" 
     
     print("            Wumpus World Game            ", end="\n\n")
-    while 1>0:
-        if coord[0]==21:
+    while True:
+        if line[0]==21:
             break
-        elif coord[0]%5==0:
+        elif line[0]%5==0:
             print(shape1)
-            coord[0]+=1
+            line[0]+=1
         else :
             print(shape2)
-            coord[0]+=1
+            line[0]+=1
 
 
 def coordinate(x,y):
@@ -50,7 +51,30 @@ def coordinate(x,y):
         b=1
         
     print(a,b)
-#def randomizeObj():
-
+    
+def randomCoord():
+    x=random.randint(1, 4)
+    y=random.randint(1, 4)
+    return x,y
+    
 gameArea()
-coordinate(23, 1)
+while True:
+    playerCoordX, playerCoordY=1,1
+    wumpusCoordX, wumpusCoordY=randomCoord()
+    goldCoordX, goldCoordY=randomCoord()
+    pitCoordX, pitCoordY=randomCoord()
+    
+    if playerCoordX !=wumpusCoordX and playerCoordY !=wumpusCoordY and playerCoordX !=goldCoordX and playerCoordY !=wumpusCoordY and playerCoordX !=pitCoordX and playerCoordY !=pitCoordX:
+        print("Player Coordinate:",playerCoordX,playerCoordY)
+        print("Wumpus Coordinate:",wumpusCoordX,wumpusCoordY)
+        print("Gold Coordinate:",goldCoordX,goldCoordY)
+        print("Pit Coordinate:",pitCoordX,pitCoordY)
+        break
+    else :
+        print("Player Coordinate:",playerCoordX,playerCoordY)
+        print("Wumpus Coordinate:",wumpusCoordX,wumpusCoordY)
+        print("Gold Coordinate:",goldCoordX,goldCoordY)
+        print("Pit Coordinate:",pitCoordX,pitCoordY)
+        print("CONFLICT")
+
+
