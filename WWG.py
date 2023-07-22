@@ -58,23 +58,17 @@ def randomCoord():
     return x,y
     
 gameArea()
+
+#Objeleri atamak için kullandım.
 while True:
     playerCoordX, playerCoordY=1,1
     wumpusCoordX, wumpusCoordY=randomCoord()
     goldCoordX, goldCoordY=randomCoord()
     pitCoordX, pitCoordY=randomCoord()
     
-    if playerCoordX !=wumpusCoordX and playerCoordY !=wumpusCoordY and playerCoordX !=goldCoordX and playerCoordY !=wumpusCoordY and playerCoordX !=pitCoordX and playerCoordY !=pitCoordX:
-        print("Player Coordinate:",playerCoordX,playerCoordY)
-        print("Wumpus Coordinate:",wumpusCoordX,wumpusCoordY)
-        print("Gold Coordinate:",goldCoordX,goldCoordY)
-        print("Pit Coordinate:",pitCoordX,pitCoordY)
+    if (playerCoordX !=wumpusCoordX or playerCoordY !=wumpusCoordY) and (playerCoordX !=goldCoordX or playerCoordY !=goldCoordY) and (playerCoordX !=pitCoordX or playerCoordY !=pitCoordY) and (goldCoordX !=wumpusCoordX or goldCoordY !=wumpusCoordY) and (goldCoordX !=pitCoordX or goldCoordY !=pitCoordY) and (wumpusCoordX !=pitCoordX or wumpusCoordY !=pitCoordY):
         break
-    else :
-        print("Player Coordinate:",playerCoordX,playerCoordY)
-        print("Wumpus Coordinate:",wumpusCoordX,wumpusCoordY)
-        print("Gold Coordinate:",goldCoordX,goldCoordY)
-        print("Pit Coordinate:",pitCoordX,pitCoordY)
-        print("CONFLICT")
+    
+        
 
 
