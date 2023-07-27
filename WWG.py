@@ -13,10 +13,12 @@ import random
 
 def gameArea():
     line=[0,0]
-    shape1="*****************************************"
-    shape2="*         *         *         *         *" 
+    shape1=41*"*"
+    shape2=4*("*"+9*(" "))+"*"
+    header=12*" "+"Wumpus World Game"+12*" "
     
-    print("            Wumpus World Game            ", end="\n\n")
+    print(len(header))
+    print(header, end="\n\n")
     while True:
         if line[0]==21:
             break
